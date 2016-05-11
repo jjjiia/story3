@@ -164,7 +164,7 @@ function drawBaseMap(){
         container: 'map', // container id
         style: 'mapbox://styles/jjjiia123/cio0du5yv002fagkled2g604q', //hosted style id
         center:[-85,41.788268], // starting position
-        zoom:20 // starting zoom
+        zoom:15 // starting zoom
     })
     return map
 }
