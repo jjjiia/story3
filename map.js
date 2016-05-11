@@ -8,7 +8,6 @@ $(function() {
 		.defer(d3.json, "dot_data/msa_black.geojson_byMsaId.json")
 		.defer(d3.json, "dot_data/msa_asian.geojson_byMsaId.json")
 		.defer(d3.json, "dot_data/msa_hispanic.geojson_byMsaId.json")
-		.defer(d3.json, "data/topo_tract_filtered.geojson")
         .defer(d3.json, "data/crossReference.json")
         .defer(d3.csv, "data/data_tract.csv")
         .defer(d3.json, "data/combinedByMsaId.json")
@@ -17,7 +16,7 @@ $(function() {
 })
 
 var map = null
-function dataDidLoad(error,tw,tb,ta,th,mw,mb,ma,mh,tract_topo,crossReference,tractData,msaData,cityCentroids) {
+function dataDidLoad(error,tw,tb,ta,th,mw,mb,ma,mh,crossReference,tractData,msaData,cityCentroids) {
 
         map = drawBaseMap()
     
