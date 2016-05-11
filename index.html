@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset="UTF-8">
+	  
+	<title></title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  
+	<script src="static/d3.v3.min.js"></script>
+	<script src="static/jquery.min.js"></script>
+    <script src="static/queue.js"></script>	
+    <script src="static/sortable.js"></script>	
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+ <script src="static/d3.tip.v0.6.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.18.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='styles/story.css' rel='stylesheet' />
+ 
+</head>
+
+<body>
+<div id = "text">
+  <div id = "start">A recreation of <a href="url">"The Most Diverse Cities Are Often The Most Segregated"</a> from 
+  http://fivethirtyeight.com/</div>
+  <div id = "text-story">
+    
+    <p id="intro">Nate Silver remembers hearing the same caution many times when he attended the University of Chicago. Despite the university
+      counting its diverse urban setting as one of its assets, students were warned not to go outside of the boundaries of their campus neighborhood. Segregation remains a problem in Chicago today.</p>
+    
+     <p id = "chicagoMsa">What is the difference between diversity and integration? To say that chicago is diverse, we are essentially looking at a map like this where we see that chicago has a great number of minority groups within its boundaries
+   chicago by Msa</p>
+    <p id = "chicagoTract">However if we look at the diversity within each of Chicago's neightborhoods, we see that neighborhoods are highly segregated by race.</p>
+    
+    <p id = "cityPlot">If we plot the two measures MSA-wide diversity and average tract diversity, we can see how cities compare. The lower left quadrant are cities that have neither diversity nor integration. </p>
+    <div id = "plot"></div>
+
+    <p id = "cityRank">Here are how the largest cities rank by this measure. Click any city to see how they look compared to their scores.</p>
+    <div id = "rank"></div>
+    <p id = "miamiTract">Of the 10 largest msas by population, Miami comes in second, </p>
+    <p id = "nycTract">along with the New York and New Jersey area.</p>
+  </div>
+<div id = "structure">TODO: the architecture of this story</div>
+</div>
+<div id = "map"></div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+
+</script>
+  <script src='map.js'></script>
+	
+	
+</body>
+</html>

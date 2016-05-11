@@ -1,0 +1,91 @@
+body{
+    font-family:Baskerville;
+    font-size:12px;
+}
+#text{
+    height:70%;
+    width:400px;
+    position:fixed;
+    left:0px;
+    top:100px;
+    overflow:auto;
+    background-color:rgba(255,255,255,.5);
+    z-index:999;
+    padding:20px;
+    font-size:18px;
+}
+#header{
+    font-size:30px;
+    letter-spacing:2px;
+}
+#key{
+    position:fixed;
+    right:10px;
+    top:10px;
+    padding:10px;
+}
+#structure{
+    
+}
+#cityLabel{
+    position:fixed;
+    left:450px;
+    padding:40px;
+    font-size:40px;
+}
+#viz{
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:0;
+}
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+#start{
+    border-bottom:1px solid black;
+    position:fixed;
+    top:0px;
+    width:400px;
+    margin-top:20px;
+    padding:10px;
+    margin-bottom:20px;
+}
+
+p:hover{
+    background-color:yellow;
+}
+.d3-tip {
+  padding: 12px;
+  color: #000;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
+}
+
+.y.axis line {
+  stroke: #777;
+  stroke-dasharray: 2,2;
+}
+#rank{}
+table{
+    padding:5px;
+}
+th{
+    padding:5px;
+}
+td:hover{background-color:yellow;}
+td{
+    width:100px;
+    padding-right:5px;
+    font-size:11px;
+    
+}
