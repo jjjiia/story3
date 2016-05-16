@@ -1,6 +1,13 @@
 $(function() {
 	queue()
-		
+		.defer(d3.json, "dot_data/tract_white.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/tract_black.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/tract_asian.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/tract_hispanic.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/msa_white.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/msa_black.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/msa_asian.geojson_byMsaId.json")
+		.defer(d3.json, "dot_data/msa_hispanic.geojson_byMsaId.json")
         .defer(d3.json, "data/crossReference.json")
         .defer(d3.csv, "data/data_tract.csv")
         .defer(d3.json, "data/combinedByMsaId.json")
@@ -9,10 +16,9 @@ $(function() {
 })
 
 var map = null
-function dataDidLoad(error,crossReference,tractData,msaData,cityCentroids) {
+function dataDidLoad(error,tw,tb,ta,th,mw,mb,ma,mh,crossReference,tractData,msaData,cityCentroids) {
 
         map = drawBaseMap()
-        drawRanks(msaData,cityCentroids)
     
     d3.select("#chicagoTract").style("cursor","pointer").on("click",function(){  
         newCoords = {lat:41.788268,lng: -87.598644}
@@ -37,10 +43,10 @@ function dataDidLoad(error,crossReference,tractData,msaData,cityCentroids) {
         
     })
  
-   // d3.select("#cityRank").style("cursor","pointer").on("click",function(){
-   //     drawRanks(msaData,cityCentroids)
-   // })
-   // 
+    d3.select("#cityRank").style("cursor","pointer").on("click",function(){
+        drawRanks(msaData,cityCentroids)
+    })
+    
     d3.select("#cityPlot").style("cursor","pointer").on("click",function(){
         drawPlot(tractData,msaData,cityCentroids,crossReference)
     })
@@ -120,7 +126,7 @@ function drawRanks(msaData,cityCentroids){
     }
      var row = $("<tr />")
     $("#rank").append(row)
-    var newArray = array.sort(function(a,b){return b["population"]-a["population"]}).slice(1,20)
+    var newArray = array.sort(function(a,b){return b["msaD"]-a["msaD"]}).slice(1,40)
    
     row.append($("<td>" + "city" + "</td>"));
     //city.attr("cursor","pointer").attr("class","city")    
