@@ -16,6 +16,8 @@ $(function() {
 })
 
 var map = null
+var rankShown = false
+var plotShown = false
 function dataDidLoad(error,tw,tb,ta,th,mw,mb,ma,mh,crossReference,tractData,msaData,cityCentroids) {
 
         map = drawBaseMap()
@@ -44,11 +46,28 @@ function dataDidLoad(error,tw,tb,ta,th,mw,mb,ma,mh,crossReference,tractData,msaD
     })
  
     d3.select("#cityRank").style("cursor","pointer").on("click",function(){
-        drawRanks(msaData,cityCentroids)
+        if(rankShown == false){
+            drawRanks(msaData,cityCentroids)
+            rankShown = true
+            console.log("turning on")
+            
+        }else{
+            console.log("turning off")
+            d3.selectAll("tr").remove()
+            rankShown = false
+        }
     })
     
     d3.select("#cityPlot").style("cursor","pointer").on("click",function(){
-        drawPlot(tractData,msaData,cityCentroids,crossReference)
+        
+        if(plotShown == false){
+            drawPlot(tractData,msaData,cityCentroids,crossReference)
+            plotShown = true
+        }else{
+            d3.select("#plot svg").remove()
+            plotShown = false
+        }
+        
     })
 }
 function drawPlot(tractData,msaData,cityCentroids,crossReference){
@@ -126,7 +145,7 @@ function drawRanks(msaData,cityCentroids){
     }
      var row = $("<tr />")
     $("#rank").append(row)
-    var newArray = array.sort(function(a,b){return b["msaD"]-a["msaD"]}).slice(1,40)
+    var newArray = array.sort(function(a,b){return b["msaD"]-a["msaD"]}).slice(1,20)
    
     row.append($("<td>" + "city" + "</td>"));
     //city.attr("cursor","pointer").attr("class","city")    
@@ -143,7 +162,6 @@ function drawRanks(msaData,cityCentroids){
 function drawRow(cityCentroids,rowData,i) {
     var row = $("<tr />").attr("class",rowData.geoid);
     row.on("click",function(){
-        console.log(rowData)
         var centroid = cityCentroids["310M200US"+rowData.msaCode].point
         var city = {lat:centroid[1], lng:centroid[0]}
         map.setZoom(8)
